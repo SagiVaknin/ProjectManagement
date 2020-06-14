@@ -10,11 +10,6 @@ function initApp() {
     };
     firebase.initializeApp(config);
 
-    function hasImg(val) {
-        if (val)
-            return "https://firebasestorage.googleapis.com/v0/b/projectmanagement-612b8.appspot.com/o/icons%2Fcompact_camera.png?alt=media&token=e23f870d-4f38-4e92-a4fb-d3eddffd65da";
-        return "";
-    }
 
     const modalVarThree = document.getElementById("modalThree");
     modalVarThree.style.display = "none";
@@ -51,8 +46,6 @@ function initApp() {
             alert("Please enter a valid Until Date");
             return;
         }
-
-
         //*check if anything missing
         const loc= document.getElementById("locationModal");
         const loc2= document.getElementById("roomzModal");
@@ -74,15 +67,6 @@ function initApp() {
 
         const modalVar = document.getElementById("myModal");
         const form = document.getElementById("editInfoFormTwo");
-        // console.log("running");
-         
-  /*      var fDate = new Date(form.fromDate.value);
-        var uDate = new Date(form.untilDate.value);
-
-        if(fDate.getTime() - uDate.getTime() > 0){
-            alert('Invalid Dates, From-Date is Greater than Until-Date, try again!');
-            return;
-        }*/
 
         //request to db to update data
         fetch("/api/updateUnit", {
@@ -122,8 +106,6 @@ function initApp() {
 
         addRowHandlers();
 
-        const sss = document.getElementById("tableBody");
-        
         function addRowHandlers() {
             var table = document.getElementById("tableBody");
             var rows = table.getElementsByTagName("tr");
@@ -133,10 +115,6 @@ function initApp() {
                 var createClickHandler =
                     function (row) {
                         return function () {
-                            var cell = row.getElementsByTagName("a")[0];
-                            var id = cell.innerHTML;
-                            var cell1 = row.getElementsByTagName("a")[1];
-                            var id2 = cell1.innerHTML;
                             var bd = row.getElementsByTagName("button")[0];
                             var modal = document.getElementById("myModal");
                             var modal1 = document.getElementById("modalOne");
@@ -192,10 +170,6 @@ function addRowHandlers() {
         var createClickHandler =
             function (row) {
                 return function () {
-                    var cell = row.getElementsByTagName("a")[0];
-                    var id = cell.innerHTML;
-                    var cell1 = row.getElementsByTagName("a")[1];
-                    var id2 = cell1.innerHTML;
                     var bd = row.getElementsByTagName("button")[0];
                     var modal = document.getElementById("myModal");
                     var modal1 = document.getElementById("modalOne");

@@ -40,8 +40,6 @@ function initApp()
     // const signOutButton = document.getElementById("logoutButton");
     const signOutButton = document.getElementById("createUser");
 
-    const checkUsername = document.getElementById("checkUsernameBtn");
-
     const removeUsername = document.getElementById("modalOne");
 
     const showQuestionWindow = document.getElementById("modalTwo");
@@ -49,8 +47,6 @@ function initApp()
     const registerUser = document.getElementById("registerModal");
 
     const registerUserForm = document.querySelector(".registerForm");
-
-    const recoveryForm = document.querySelector(".recoveryForm");
 
     const checkAnswer = document.getElementById("submitAnswerBtn");
     
@@ -87,11 +83,6 @@ function initApp()
         removeUsername.style.display = "none";
     }
 
-    // function getUsername(){
-    //     console.log("he")
-    //     return document.getElementById("recoveryWindow").value;
-    // }
-
     var closeSpan = document.getElementById("closeReg");
     closeSpan.onclick = function () {
         modal.style.display = "none";
@@ -108,17 +99,6 @@ function initApp()
     });
 
 
-    // checkUsername.addEventListener('click',e =>{
-        // console.log(document.getElementById("recoveryWindow").value);
-        // if(document.getElementById("recoveryWindow").value=="t"){
-        //     document.getElementById("getQuestion").innerHTML ='hello:'+ getUsername()+ ' your question is:';
-        //     removeUsername.style.display = "none";
-        //     showQuestionWindow.style.display = "block";
-        // }
-        // else
-        //     console.log("invalid username");     
-    // });
-    
     registerUserForm.addEventListener('submit',e =>{
         e.preventDefault();
         console.log(registerUserForm.userE.value);  
@@ -132,7 +112,6 @@ function initApp()
         console.log(lName);
         console.log(val);
         console.log(bankN);
-        var saveUrl="";
         var sentPack={};
         var saveA = null;
             // eslint-disable-next-line promise/catch-or-return
@@ -191,18 +170,11 @@ function initApp()
                 })
                 .then(() => {
                     if(val == "student"){
-                        // eslint-disable-next-line promise/always-return
                         alert("Successfully Registered as a Student!");
-                        // window.location.href="/";
-                        // location.reload();
-                        // console.log("registered");
                     }
                     else if(val == "renter")
                     {
                         alert("Successfully Registered as a Renter!");
-                        // window.location.href="/";
-                        // console.log("registered renter");
-                        // registerUserForm.reset();
                     }
                 });
             return false;
@@ -251,10 +223,6 @@ function initApp()
             bank.style.display = "block";
         }
     }    
-
-    function verifyAnswer(answer){
-        return answer;
-    }
     
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
@@ -263,10 +231,6 @@ function initApp()
         }
     }
 
-
-    // Set the configuration for your app
-    // TODO: Replace with your project's config object
-    
     var config = {
         apiKey: "AIzaSyDwIvIUQ02UrYTeJ_H96jW49NaQkXMTBVc",
         authDomain: "projectmanagement-612b8.firebaseapp.com",
