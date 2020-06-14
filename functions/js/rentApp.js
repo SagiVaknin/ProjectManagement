@@ -57,12 +57,16 @@ function initApp() {
         const loc8= document.getElementById("minDateModal");
         const loc9= document.getElementById("phoneNumberModal");
         const loc0= document.getElementById("descriptionModal");
-        if(loc.value==""||loc2.value==""||loc3.value==""||loc4.value==""||loc5.value==""||
-        loc6.value==""||loc7.value==""||loc8.value==""||loc9.value==""||loc0.value=="")
+        if(loc.value==""||loc2.value==""||loc3.value==""||loc4.value==""||loc5.value=="")
         {
             alert("Missing information");
             return;
         }
+        if(loc6.value==""||loc7.value==""||loc8.value==""||loc9.value==""||loc0.value==""){
+            alert("Missing information");
+            return;
+        }
+
 
 
         const modalVar = document.getElementById("myModal");
