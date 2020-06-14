@@ -99,7 +99,7 @@ function initApp() {
 }
 
 
-function changeToCurrectField() {
+export function changeToCurrectField() {
   var d = document.getElementById("fromFilter");
   while (d.length > 0) {
     console.log("removed");

@@ -1,5 +1,4 @@
 /* eslint-disable promise/always-return */
-//import { response } from "express";
 
 /* eslint-disable eqeqeq */
 window.onload = function () {
@@ -23,64 +22,6 @@ function initApp() {
 
 }
 
-
-function changeToCurrectField() {
-  var d = document.getElementById("fromFilter");
-  while (d.length > 0) {
-    console.log("removed");
-    d.remove(d.length - 1);
-  }
-  var d2 = document.getElementById("toFilter");
-  while (d2.length > 0) {
-    console.log("removed");
-    d2.remove(d2.length - 1);
-  }
-  var x = document.getElementById("filter").selectedIndex;
-  if (x == 0) {
-    for (index = 1; index < 12; index++) {
-      var sel = document.getElementById("fromFilter");
-      newOption = document.createElement("option");
-      newOptionVal = document.createTextNode((index * 500));
-      newOption.appendChild(newOptionVal);
-      sel.insertBefore(newOption, sel.lastChild);
-    }
-  } else {
-    for (index = 1; index < 6; index++) {
-      var sel2 = document.getElementById("fromFilter");
-      newOption = document.createElement("option");
-      newOptionVal = document.createTextNode(index);
-      newOption.appendChild(newOptionVal);
-      sel2.insertBefore(newOption, sel2.lastChild);
-    }
-  }
-}
-
-function setToMin() {
-  var d = document.getElementById("toFilter");
-  while (d.length > 0) {
-    console.log("removed");
-    d.remove(d.length - 1);
-  }
-  var x = document.getElementById("filter").selectedIndex;
-  index = document.getElementById("fromFilter").selectedIndex + 1;
-  if (x == 0) {
-    for (index; index < 12; index++) {
-      var sel = document.getElementById("toFilter");
-      newOption = document.createElement("option");
-      newOptionVal = document.createTextNode((index * 500));
-      newOption.appendChild(newOptionVal);
-      sel.insertBefore(newOption, sel.lastChild);
-    }
-  } else {
-    for (index; index < 6; index++) {
-      var sel2 = document.getElementById("toFilter");
-      newOption = document.createElement("option");
-      newOptionVal = document.createTextNode(index);
-      newOption.appendChild(newOptionVal);
-      sel2.insertBefore(newOption, sel2.lastChild);
-    }
-  }
-}
 
 function sendRequestToServer(jsonInfo) {
   var sss = document.getElementById("tableBody");
