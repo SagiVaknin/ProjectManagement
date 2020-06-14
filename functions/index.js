@@ -156,20 +156,13 @@ app.get("/renter/history/:typeIn/:fromFilter/:toFilter", function (req, res) {
             if (req.cookies.role === "renter" || req.cookies.role === "Admin") {
                 (async () => {
                     let users;
-                    if (req.params.typeIn == "rooms") {
+                    if (req.params.typeIn == "rooms" || req.params.typeIn == "price") {
 
-                        users = await admin.firestore().collection('units').where('rid', '==', req.cookies.uid).where("rooms", '>=', Number(req.params.fromFilter))
-                            .where("rooms", '<=', Number(req.params.toFilter)).get();
-                    } else if (req.params.typeIn == "price") {
-
-                        users = await admin.firestore().collection('units').where('rid', '==', req.cookies.uid).where("price", '>=', Number(req.params.fromFilter))
-                            .where("price", '<=', Number(req.params.toFilter)).get();
-                    }else if (req.params.typeIn == "priceT") {
+                        users = await admin.firestore().collection('units').where('rid', '==', req.cookies.uid).where(req.params.typeIn, '>=', Number(req.params.fromFilter))
+                            .where(req.params.typeIn, '<=', Number(req.params.toFilter)).get();
+                    } else if (req.params.typeIn == "priceT" || req.params.typeIn == "0") {
 
                            users = await admin.firestore().collection('units').where('rid', '==', req.cookies.uid).get();
-                    }
-                    else if (req.params.typeIn == "0") {
-                        users = await admin.firestore().collection('units').where('rid', '==', req.cookies.uid).get();
                     }
 
                     let sum=0;
